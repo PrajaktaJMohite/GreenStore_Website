@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenStore - Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌿 GreenStore</h1>
+    <a href="cart.html" class="cart-btn">🛒 Cart (<span id="cart-count">0</span>)</a>
+  </header>
+<!-- 🔍 Search and Filter Section -->
+  <section class="filter-bar">
+    <input type="text" id="search-box" placeholder="Search product name...">
+    <div class="price-filter">
+      <label>Min ₹</label>
+      <input type="number" id="min-price" placeholder="0" min="0">
+      <label>Max ₹</label>
+      <input type="number" id="max-price" placeholder="1000" min="0">
+      <button id="filter-btn">Apply</button>
+      <button id="clear-filter">Clear</button>
+    </div>
+  </section>
+   <main class="shop-container" id="product-list">
+    <!-- Products will be loaded dynamically -->
+  </main>
+  <main class="shop-container">
+    <div class="product" data-name="Indoor Plant Pot" data-price="499">
+      <img src="https://m.media-amazon.com/images/I/81Vov5D8-HL._SX679_.jpg" alt="Indoor Plant Pot">
+      <h3>Indoor Plant Pot</h3>
+      <p>₹499</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Succulent Set" data-price="699">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/022/006/333/small/floral-composition-of-spathiphyllum-peace-lilies-flower-illustration-ai-generative-free-photo.jpg" alt="Succulent Set">
+      <h3>Peace Lily</h3>
+      <p>₹699</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Ceramic Vase" data-price="899">
+      <img src="https://www.gardenersdream.co.uk/cdn/shop/articles/Snake_Plant_1_f6204179-d92b-40e3-bec7-0d3a61e93b81.jpg?v=1744013002" alt="Ceramic Vase">
+      <h3>Snake Planty</h3>
+      <p>₹899</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Cactus Plant" data-price="399">
+      <img src="https://media.istockphoto.com/id/1254913138/photo/giant-monstera-tree-in-flowerpot-isolated-on-white-background-with-clipping-path.jpg?s=612x612&w=0&k=20&c=WgSHacraFVz5ez-XLpnO9Jc4Jh6uf-v_LH6uSqqFwiI=" alt="Cactus Plant">
+      <h3>Monstera Deliciosa</h3>
+      <p>₹399</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Cactus Plant" data-price="399">
+      <img src="https://unlimitedgreens.com/cdn/shop/products/Aloe-Vera-Website-Front.webp?v=1676457070" alt="Cactus Plant">
+      <h3>Aloe Vera</h3>
+      <p>₹499</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Cactus Plant" data-price="399">
+      <img src="https://static.vecteezy.com/system/resources/previews/042/521/645/non_2x/ai-generated-a-lush-areca-palm-in-a-pot-isolated-white-background-photo.jpg" alt="Cactus Plant">
+      <h3>Areca Palm</h3>
+      <p>₹699</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Cactus Plant" data-price="399">
+      <img src="https://cdn.commmerce.com/uploads/pasumai-thottakalai-1/productImages/full/17113831412264money-plant.jpg" alt="Cactus Plant">
+      <h3>Money Plant</h3>
+      <p>₹899</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Cactus Plant" data-price="399">
+      <img src="https://images.pexels.com/photos/2149105/pexels-photo-2149105.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-2149105.jpg&fm=jpg" alt="Cactus Plant">
+      <h3>Bonsai Tree</h3>
+      <p>₹399</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+     <div class="product" data-name="Cactus Plant" data-price="399">
+      <img src="https://m.media-amazon.com/images/I/51+tZB7aMUL._UF1000,1000_QL80_.jpg" alt="Cactus Plant">
+      <h3>Succulent Mix</h3>
+      <p>₹799</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+
+     <div class="product" data-name="Cactus Plant" data-price="399">
+      <img src="https://t3.ftcdn.net/jpg/06/92/67/04/360_F_692670465_D02W3obPk9H8hp8sOOZuJYx17c3vEYqZ.jpg" alt="Cactus Plant">
+      <h3>Orchid Pot</h3>
+      <p>₹1099</p>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
