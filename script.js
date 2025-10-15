@@ -1,14 +1,20 @@
-// --- PRODUCT DATA ---
+
+
+// =================== PRODUCT DATA ===================
 const products = [
-  // { name: "Aloe Vera", price: 499, image: "https://unlimitedgreens.com/cdn/shop/products/Aloe-Vera-Website-Front.webp?v=1676457070" },
-  // { name: "Areca Palm", price: 699, image: "https://static.vecteezy.com/system/resources/previews/042/521/645/non_2x/ai-generated-a-lush-areca-palm-in-a-pot-isolated-white-background-photo.jpg" },
-  // { name: "Money Plant", price: 899, image: "https://cdn.commmerce.com/uploads/pasumai-thottakalai-1/productImages/full/17113831412264money-plant.jpg" },
-  // { name: "Bonsai Tree", price: 399, image: "https://images.pexels.com/photos/2149105/pexels-photo-2149105.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-2149105.jpg&fm=jpg" },
-  // { name: "Succulent Mix", price: 799, image: "https://m.media-amazon.com/images/I/51+tZB7aMUL._UF1000,1000_QL80_.jpg" },
-  
+  { name: "Indoor Plant Pot", price: 499, image: "https://m.media-amazon.com/images/I/81Vov5D8-HL._SX679_.jpg" },
+  { name: "Peace Lily", price: 699, image: "https://static.vecteezy.com/system/resources/thumbnails/022/006/333/small/floral-composition-of-spathiphyllum-peace-lilies-flower-illustration-ai-generative-free-photo.jpg" },
+  { name: "Snake Planty", price: 899, image: "https://www.gardenersdream.co.uk/cdn/shop/articles/Snake_Plant_1_f6204179-d92b-40e3-bec7-0d3a61e93b81.jpg?v=1744013002" },
+  { name: "Monstera Deliciosa", price: 399, image: "https://media.istockphoto.com/id/1254913138/photo/giant-monstera-tree-in-flowerpot-isolated-on-white-background-with-clipping-path.jpg?s=612x612&w=0&k=20&c=WgSHacraFVz5ez-XLpnO9Jc4Jh6uf-v_LH6uSqqFwiI=" },
+  { name: "Aloe Vera", price: 499, image: "https://unlimitedgreens.com/cdn/shop/products/Aloe-Vera-Website-Front.webp?v=1676457070" },
+  { name: "Areca Palm", price: 699, image: "https://static.vecteezy.com/system/resources/previews/042/521/645/non_2x/ai-generated-a-lush-areca-palm-in-a-pot-isolated-white-background-photo.jpg" },
+  { name: "Money Plant", price: 899, image: "https://cdn.commmerce.com/uploads/pasumai-thottakalai-1/productImages/full/17113831412264money-plant.jpg" },
+  { name: "Bonsai Tree", price: 399, image: "https://images.pexels.com/photos/2149105/pexels-photo-2149105.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-2149105.jpg&fm=jpg" },
+  { name: "Succulent Mix", price: 799, image: "https://m.media-amazon.com/images/I/51+tZB7aMUL._UF1000,1000_QL80_.jpg" },
+  { name: "Orchid Pot", price: 1099, image: "https://t3.ftcdn.net/jpg/06/92/67/04/360_F_692670465_D02W3obPk9H8hp8sOOZuJYx17c3vEYqZ.jpg" }
 ];
 
-// --- CART STORAGE ---
+// =================== CART STORAGE ===================
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function saveCart() {
@@ -20,14 +26,14 @@ function updateCartCount() {
   if (count) count.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 }
 
-// --- SHOP PAGE RENDERING ---
+// =================== DISPLAY PRODUCTS ===================
 function displayProducts(filteredProducts = products) {
   const container = document.getElementById("product-list");
   if (!container) return;
 
   container.innerHTML = "";
   if (filteredProducts.length === 0) {
-    container.innerHTML = "<p></p>";
+    container.innerHTML = "<p>No products found.</p>";
     return;
   }
 
@@ -45,7 +51,7 @@ function displayProducts(filteredProducts = products) {
   });
 }
 
-// --- ADD TO CART ---
+// =================== ADD TO CART ===================
 function addToCart(product) {
   const existing = cart.find((item) => item.name === product.name);
   if (existing) {
@@ -58,11 +64,11 @@ function addToCart(product) {
   alert("✅ Added to cart!");
 }
 
-// --- FILTERING LOGIC ---
+// =================== FILTERING ===================
 function applyFilters() {
-  const searchText = document.getElementById("search-box").value.toLowerCase();
-  const minPrice = parseInt(document.getElementById("min-price").value) || 0;
-  const maxPrice = parseInt(document.getElementById("max-price").value) || Infinity;
+  const searchText = document.getElementById("search-box")?.value.toLowerCase() || "";
+  const minPrice = parseInt(document.getElementById("min-price")?.value) || 0;
+  const maxPrice = parseInt(document.getElementById("max-price")?.value) || Infinity;
 
   const filtered = products.filter(
     (p) =>
@@ -74,7 +80,6 @@ function applyFilters() {
   displayProducts(filtered);
 }
 
-// --- CLEAR FILTER ---
 function clearFilters() {
   document.getElementById("search-box").value = "";
   document.getElementById("min-price").value = "";
@@ -82,11 +87,10 @@ function clearFilters() {
   displayProducts(products);
 }
 
-// --- CART PAGE ---
+// =================== CART PAGE ===================
 function displayCartItems() {
   const list = document.getElementById("cart-items");
   const totalEl = document.getElementById("total");
-
   if (!list) return;
 
   list.innerHTML = "";
@@ -125,21 +129,14 @@ function checkout() {
   clearCart();
 }
 
-// --- INIT ---
+// =================== INIT ===================
 updateCartCount();
 displayProducts(products);
 displayCartItems();
 
-// --- Event Listeners ---
-const filterBtn = document.getElementById("filter-btn");
-const clearBtn = document.getElementById("clear-filter");
-if (filterBtn) filterBtn.addEventListener("click", applyFilters);
-if (clearBtn) clearBtn.addEventListener("click", clearFilters);
-
-const searchBox = document.getElementById("search-box");
-if (searchBox) searchBox.addEventListener("input", applyFilters);
-
-const clearCartBtn = document.getElementById("clear-cart");
-const checkoutBtn = document.getElementById("checkout-btn");
-if (clearCartBtn) clearCartBtn.addEventListener("click", clearCart);
-if (checkoutBtn) checkoutBtn.addEventListener("click", checkout);
+// =================== EVENT LISTENERS ===================
+document.getElementById("filter-btn")?.addEventListener("click", applyFilters);
+document.getElementById("clear-filter")?.addEventListener("click", clearFilters);
+document.getElementById("search-box")?.addEventListener("input", applyFilters);
+document.getElementById("clear-cart")?.addEventListener("click", clearCart);
+document.getElementById("checkout-btn")?.addEventListener("click", checkout);
